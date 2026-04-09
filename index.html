@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹케시㈜ 재무ERP 프로젝트 진행현황</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== 히어로 헤더 ===== -->
+  <header class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>웹케시㈜ 재무ERP</h1>
+        <div class="hero-sub">프로젝트 진행현황 대시보드</div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-period">전체 기간 &nbsp;2025-11-01 ~ 2026-06-30</div>
+        <span class="badge ing" data-badge="overall">진행중</span>
+      </div>
+    </div>
+    <div class="hero-overall">
+      <div class="overall-row">
+        <span class="overall-label">전체 진척율</span>
+        <span class="overall-pct" data-pct="overall">66%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" data-bar="overall" style="width:66%"></div>
+      </div>
+    </div>
+    <!-- 조회 버튼 -->
+    <div class="refresh-bar">
+      <button id="refresh-btn" onclick="fetchAndUpdate()">&#8635; 최신내역 가져오기</button>
+      <span class="refresh-sep">|</span>
+      <span class="refresh-label">최신내역 조회:</span>
+      <span id="refresh-time">-</span>
+    </div>
+  </header>
+
+  <!-- ===== 단계 요약 ===== -->
+  <div class="summary-row">
+    <div class="summary-card done" data-key="summary-1">
+      <div class="summary-step">1단계</div>
+      <div class="summary-name">요구사항 분석</div>
+      <div class="summary-pct-text" data-pct="summary-1">100%</div>
+      <div class="summary-bar"><div data-bar="summary-1" style="width:100%"></div></div>
+    </div>
+    <div class="summary-card done" data-key="summary-2">
+      <div class="summary-step">2단계</div>
+      <div class="summary-name">시스템 설계</div>
+      <div class="summary-pct-text" data-pct="summary-2">100%</div>
+      <div class="summary-bar"><div data-bar="summary-2" style="width:100%"></div></div>
+    </div>
+    <div class="summary-card ing" data-key="summary-3">
+      <div class="summary-step">3단계</div>
+      <div class="summary-name">상품설계</div>
+      <div class="summary-pct-text" data-pct="summary-3">96%</div>
+      <div class="summary-bar"><div data-bar="summary-3" style="width:96%"></div></div>
+    </div>
+    <div class="summary-card ing" data-key="summary-4">
+      <div class="summary-step">4단계</div>
+      <div class="summary-name">개발</div>
+      <div class="summary-pct-text" data-pct="summary-4">36%</div>
+      <div class="summary-bar"><div data-bar="summary-4" style="width:36%"></div></div>
+    </div>
+    <div class="summary-card wait" data-key="summary-5">
+      <div class="summary-step">5단계</div>
+      <div class="summary-name">배포/운영테스트</div>
+      <div class="summary-pct-text" data-pct="summary-5">0%</div>
+      <div class="summary-bar"><div data-bar="summary-5" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 단계 상세 ===== -->
+  <div class="stages">
+
+    <!-- 1단계 -->
+    <div class="stage-card done" data-key="stage-1">
+      <div class="stage-header">
+        <div class="stage-header-left">
+          <div class="stage-num">1</div>
+          <div class="stage-title-wrap">
+            <h2>요구사항 분석</h2>
+            <div class="stage-period">2025-11-01 ~ 2025-12-31</div>
+          </div>
+        </div>
+        <div class="stage-header-right">
+          <span class="badge done" data-badge="stage-1">완료</span>
+          <span class="stage-pct-big" data-pct="stage-1">100%</span>
+        </div>
+      </div>
+      <div class="stage-progress">
+        <div class="stage-progress-fill" data-bar="stage-1" style="width:100%"></div>
+      </div>
+      <div class="sub-list">
+        <div class="sub-item done" data-key="sub-1-1">
+          <div>
+            <div class="sub-name">1-1. 요건분석</div>
+            <div class="sub-meta">2025-11-01 ~ 2025-12-31</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill done" data-bar="sub-1-1" style="width:100%"></div></div>
+              <span class="sub-pct" data-pct="sub-1-1">100%</span>
+            </div>
+            <div class="sub-meta">주요기능개선 사항 분석, 요구사항분석</div>
+          </div>
+          <div class="sub-right"><span class="badge done" data-badge="sub-1-1">완료</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2단계 -->
+    <div class="stage-card done" data-key="stage-2">
+      <div class="stage-header">
+        <div class="stage-header-left">
+          <div class="stage-num">2</div>
+          <div class="stage-title-wrap">
+            <h2>시스템 설계 및 개발환경 설정</h2>
+            <div class="stage-period">2026-01-05 ~ 2026-03-27</div>
+          </div>
+        </div>
+        <div class="stage-header-right">
+          <span class="badge done" data-badge="stage-2">완료</span>
+          <span class="stage-pct-big" data-pct="stage-2">100%</span>
+        </div>
+      </div>
+      <div class="stage-progress">
+        <div class="stage-progress-fill" data-bar="stage-2" style="width:100%"></div>
+      </div>
+      <div class="sub-list">
+
+        <div class="sub-item done" data-key="sub-2-1">
+          <div>
+            <div class="sub-name">2-1. 시스템 설계</div>
+            <div class="sub-meta">2026-01-05 ~ 2026-02-11 &nbsp;|&nbsp; 김완수, 강현아</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill done" data-bar="sub-2-1" style="width:100%"></div></div>
+              <span class="sub-pct" data-pct="sub-2-1">100%</span>
+            </div>
+            <div class="sub-meta">서버/클라이언트 아키텍처 설계</div>
+          </div>
+          <div class="sub-right"><span class="badge done" data-badge="sub-2-1">완료</span></div>
+        </div>
+
+        <div class="sub-item done" data-key="sub-2-2">
+          <div>
+            <div class="sub-name">2-2. 서버 설치/구성</div>
+            <div class="sub-meta">2026-02-13 ~ 2026-03-27 &nbsp;|&nbsp; 김완수</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill done" data-bar="sub-2-2" style="width:100%"></div></div>
+              <span class="sub-pct" data-pct="sub-2-2">100%</span>
+            </div>
+            <div class="sub-meta">클라우드 설정, 네이버 클라우드 VPN 연결, 접속환경 구성</div>
+          </div>
+          <div class="sub-right"><span class="badge done" data-badge="sub-2-2">완료</span></div>
+        </div>
+
+        <div class="sub-item done" data-key="sub-2-3">
+          <div>
+            <div class="sub-name">2-3. 프레임워크</div>
+            <div class="sub-meta">2026-03-03 ~ 2026-03-05 &nbsp;|&nbsp; 김완수</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill done" data-bar="sub-2-3" style="width:100%"></div></div>
+              <span class="sub-pct" data-pct="sub-2-3">100%</span>
+            </div>
+            <div class="sub-meta">Spring Boot, React, Jex/Wildfly 설치/구성</div>
+          </div>
+          <div class="sub-right"><span class="badge done" data-badge="sub-2-3">완료</span></div>
+        </div>
+
+        <div class="sub-item done" data-key="sub-2-4">
+          <div>
+            <div class="sub-name">2-4. 개발환경 설정</div>
+            <div class="sub-meta">2026-03-03 ~ 2026-03-17 &nbsp;|&nbsp; 김완수</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill done" data-bar="sub-2-4" style="width:100%"></div></div>
+              <span class="sub-pct" data-pct="sub-2-4">100%</span>
+            </div>
+            <div class="sub-meta">빌드 서버 구성 (CI/CD)</div>
+          </div>
+          <div class="sub-right"><span class="badge done" data-badge="sub-2-4">완료</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3단계 -->
+    <div class="stage-card ing" data-key="stage-3">
+      <div class="stage-header">
+        <div class="stage-header-left">
+          <div class="stage-num">3</div>
+          <div class="stage-title-wrap">
+            <h2>상품설계</h2>
+            <div class="stage-period">2026-02-19 ~ 2026-03-24</div>
+          </div>
+        </div>
+        <div class="stage-header-right">
+          <span class="badge ing" data-badge="stage-3">진행</span>
+          <span class="stage-pct-big" data-pct="stage-3">96%</span>
+        </div>
+      </div>
+      <div class="stage-progress">
+        <div class="stage-progress-fill" data-bar="stage-3" style="width:96%"></div>
+      </div>
+      <div class="sub-list">
+
+        <div class="sub-item done" data-key="sub-3-0">
+          <div>
+            <div class="sub-name">3-0. 플랫폼</div>
+            <div class="sub-meta">2026-02-19 ~ 2026-03-24</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill done" data-bar="sub-3-0" style="width:100%"></div></div>
+              <span class="sub-pct" data-pct="sub-3-0">100%</span>
+            </div>
+            <div class="sub-meta">회원가입, 로그인, 메인화면, 대시보드</div>
+          </div>
+          <div class="sub-right"><span class="badge done" data-badge="sub-3-0">완료</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-3-1">
+          <div>
+            <div class="sub-name">3-1. 기초공통</div>
+            <div class="sub-meta">2025-12-16 ~ 2026-02-20 &nbsp;|&nbsp; 임종민</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-3-1" style="width:14%"></div></div>
+              <span class="sub-pct" data-pct="sub-3-1">14%</span>
+            </div>
+            <div class="sub-meta">회사정보관리 완료 / 사업부문·부서·거래처·사원·사용자·권한관리 대기</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-3-1">진행</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-3-2">
+          <div>
+            <div class="sub-name">3-2. 재무회계</div>
+            <div class="sub-meta">2025-12-15 ~ 2026-01-30 &nbsp;|&nbsp; 임희나</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-3-2" style="width:95%"></div></div>
+              <span class="sub-pct" data-pct="sub-3-2">95%</span>
+            </div>
+            <div class="sub-meta">회계관리·부가세관리 설계</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-3-2">진행</span></div>
+        </div>
+
+        <div class="sub-item done" data-key="sub-3-3">
+          <div>
+            <div class="sub-name">3-3. 예산관리</div>
+            <div class="sub-meta">2025-12-15 ~ 2026-01-27 &nbsp;|&nbsp; 박혜선</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill done" data-bar="sub-3-3" style="width:100%"></div></div>
+              <span class="sub-pct" data-pct="sub-3-3">100%</span>
+            </div>
+            <div class="sub-meta">예산관리 설계 완료</div>
+          </div>
+          <div class="sub-right"><span class="badge done" data-badge="sub-3-3">완료</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-3-4">
+          <div>
+            <div class="sub-name">3-4. 인사관리</div>
+            <div class="sub-meta">2026-01-21 ~ 2026-03-27 &nbsp;|&nbsp; 서수한, 양윤정</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-3-4" style="width:74%"></div></div>
+              <span class="sub-pct" data-pct="sub-3-4">74%</span>
+            </div>
+            <div class="sub-meta">인사관리 설계 진행중</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-3-4">진행</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4단계 -->
+    <div class="stage-card ing" data-key="stage-4">
+      <div class="stage-header">
+        <div class="stage-header-left">
+          <div class="stage-num">4</div>
+          <div class="stage-title-wrap">
+            <h2>개발</h2>
+            <div class="stage-period">2026-02-02 ~ 2026-06-09</div>
+          </div>
+        </div>
+        <div class="stage-header-right">
+          <span class="badge ing" data-badge="stage-4">진행</span>
+          <span class="stage-pct-big" data-pct="stage-4">36%</span>
+        </div>
+      </div>
+      <div class="stage-progress">
+        <div class="stage-progress-fill" data-bar="stage-4" style="width:36%"></div>
+      </div>
+      <div class="sub-list">
+
+        <div class="sub-item ing" data-key="sub-4-1">
+          <div>
+            <div class="sub-name">4-1. 플랫폼</div>
+            <div class="sub-meta">2026-03-16 ~ 2026-04-17 &nbsp;|&nbsp; 김완수, 강현아</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-4-1" style="width:84%"></div></div>
+              <span class="sub-pct" data-pct="sub-4-1">84%</span>
+            </div>
+            <div class="sub-meta">로그인, 회원가입, 메인화면, 플랫폼 API 개발</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-4-1">진행</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-4-2">
+          <div>
+            <div class="sub-name">4-2. 기초공통</div>
+            <div class="sub-meta">2026-03-03 ~ 2026-04-30 &nbsp;|&nbsp; 홍현석, 정인성, 이탄, 루시, 로니</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-4-2" style="width:10%"></div></div>
+              <span class="sub-pct" data-pct="sub-4-2">10%</span>
+            </div>
+            <div class="sub-meta">테이블설계 90% / 회사정보 5% / 사용자관리 5% / 나머지 대기</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-4-2">진행</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-4-3">
+          <div>
+            <div class="sub-name">4-3. 재무회계</div>
+            <div class="sub-meta">2026-02-02 ~ 2026-06-09 &nbsp;|&nbsp; 임진하, 문은진, 이준형, 문창기, 손혜연</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-4-3" style="width:22%"></div></div>
+              <span class="sub-pct" data-pct="sub-4-3">22%</span>
+            </div>
+            <div class="sub-meta">결의서·전표마감 진행 / 부가세 개정세법으로 인한 일부 지연</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-4-3">진행</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-4-4">
+          <div>
+            <div class="sub-name">4-4. 예산관리</div>
+            <div class="sub-meta">2026-02-25 ~ 2026-06-01 &nbsp;|&nbsp; 고석민, 강지우</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-4-4" style="width:64%"></div></div>
+              <span class="sub-pct" data-pct="sub-4-4">64%</span>
+            </div>
+            <div class="sub-meta">예산신청·추경·전용·명세서 등 완료 / 네이버 클라우드 IP변경으로 일부 지연</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-4-4">진행</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-4-5">
+          <div>
+            <div class="sub-name">4-5. 인사관리</div>
+            <div class="sub-meta">2026-03-03 ~ 2026-04-30 &nbsp;|&nbsp; 문지영, 김경희, 김경배, 류기민, 홍명진, 김태석</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-4-5" style="width:20%"></div></div>
+              <span class="sub-pct" data-pct="sub-4-5">20%</span>
+            </div>
+            <div class="sub-meta">급여환경설정 완료 / 비거주자·이자배당소득 80% / 나머지 대기</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-4-5">진행</span></div>
+        </div>
+
+        <div class="sub-item ing" data-key="sub-4-6">
+          <div>
+            <div class="sub-name">4-6. RERP 연동 API</div>
+            <div class="sub-meta">2026-03-12 ~ 2026-05-30 &nbsp;|&nbsp; 문지영, 홍현석, 고석민</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill ing" data-bar="sub-4-6" style="width:16%"></div></div>
+              <span class="sub-pct" data-pct="sub-4-6">16%</span>
+            </div>
+            <div class="sub-meta">연동 목록 정리 완료 / 재무회계 API 정의서 5% / 나머지 대기</div>
+          </div>
+          <div class="sub-right"><span class="badge ing" data-badge="sub-4-6">진행</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 5단계 -->
+    <div class="stage-card wait" data-key="stage-5">
+      <div class="stage-header">
+        <div class="stage-header-left">
+          <div class="stage-num">5</div>
+          <div class="stage-title-wrap">
+            <h2>배포 및 운영 테스트</h2>
+            <div class="stage-period">2026-06-01 ~ 2026-06-30</div>
+          </div>
+        </div>
+        <div class="stage-header-right">
+          <span class="badge wait" data-badge="stage-5">대기</span>
+          <span class="stage-pct-big" data-pct="stage-5">0%</span>
+        </div>
+      </div>
+      <div class="stage-progress">
+        <div class="stage-progress-fill" data-bar="stage-5" style="width:0%"></div>
+      </div>
+      <div class="sub-list">
+
+        <div class="sub-item wait" data-key="sub-5-1">
+          <div>
+            <div class="sub-name">5-1. 운영서버 구축</div>
+            <div class="sub-meta">담당: 김완수</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill wait" data-bar="sub-5-1" style="width:0%"></div></div>
+              <span class="sub-pct" data-pct="sub-5-1">0%</span>
+            </div>
+            <div class="sub-meta">Spring Boot, React, Jex/Wildfly 운영서버 설치</div>
+          </div>
+          <div class="sub-right"><span class="badge wait" data-badge="sub-5-1">대기</span></div>
+        </div>
+
+        <div class="sub-item wait" data-key="sub-5-2">
+          <div>
+            <div class="sub-name">5-2. 개발계 테스트</div>
+            <div class="sub-meta">&nbsp;</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill wait" data-bar="sub-5-2" style="width:0%"></div></div>
+              <span class="sub-pct" data-pct="sub-5-2">0%</span>
+            </div>
+            <div class="sub-meta">통합테스트, 인증/SSO 연계, 외부시스템 연계 테스트</div>
+          </div>
+          <div class="sub-right"><span class="badge wait" data-badge="sub-5-2">대기</span></div>
+        </div>
+
+        <div class="sub-item wait" data-key="sub-5-3">
+          <div>
+            <div class="sub-name">5-3. 운영 테스트</div>
+            <div class="sub-meta">2026-06-01 ~ 2026-06-30</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill wait" data-bar="sub-5-3" style="width:0%"></div></div>
+              <span class="sub-pct" data-pct="sub-5-3">0%</span>
+            </div>
+            <div class="sub-meta">성능/부하·장애대응 테스트 / 파일럿: 서울미디어대학교대학원</div>
+          </div>
+          <div class="sub-right"><span class="badge wait" data-badge="sub-5-3">대기</span></div>
+        </div>
+
+        <div class="sub-item wait" data-key="sub-5-4">
+          <div>
+            <div class="sub-name">5-4. 대고객 오픈</div>
+            <div class="sub-meta">2026-07-01 ~</div>
+          </div>
+          <div class="sub-center">
+            <div class="sub-bar-wrap">
+              <div class="sub-bar"><div class="sub-fill wait" data-bar="sub-5-4" style="width:0%"></div></div>
+              <span class="sub-pct" data-pct="sub-5-4">0%</span>
+            </div>
+            <div class="sub-meta">대고객 오픈 예정</div>
+          </div>
+          <div class="sub-right"><span class="badge wait" data-badge="sub-5-4">대기</span></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /stages -->
+</div><!-- /container -->
+
+<script>
+// ─── CSV 파싱 ───────────────────────────────────────────
+function parseCSV(text) {
+  const rows = [];
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  for (const line of lines) {
+    const cols = [];
+    let inQ = false, field = '';
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') { inQ = !inQ; }
+      else if (ch === ',' && !inQ) { cols.push(field); field = ''; }
+      else { field += ch; }
+    }
+    cols.push(field);
+    rows.push(cols);
+  }
+  return rows;
+}
+
+function parsePct(v) {
+  const n = parseInt((v || '').replace('%', '').trim());
+  return isNaN(n) ? null : n;
+}
+
+function sc(status) {
+  if (status === '완료') return 'done';
+  if (status === '진행') return 'ing';
+  return 'wait';
+}
+
+// ─── DOM 업데이트 ─────────────────────────────────────────
+function applyUpdate(key, pct, status) {
+  const cls = sc(status);
+
+  // data-key 요소 (카드/아이템) 클래스 변경
+  const el = document.querySelector(`[data-key="${key}"]`);
+  if (el) { el.classList.remove('done','ing','wait'); el.classList.add(cls); }
+
+  // 프로그레스 바
+  const bar = document.querySelector(`[data-bar="${key}"]`);
+  if (bar) {
+    bar.style.width = pct + '%';
+    bar.classList.remove('done','ing','wait');
+    bar.classList.add(cls);
+  }
+
+  // 퍼센트 텍스트
+  const pctEl = document.querySelector(`[data-pct="${key}"]`);
+  if (pctEl) pctEl.textContent = pct + '%';
+
+  // 배지
+  const badge = document.querySelector(`[data-badge="${key}"]`);
+  if (badge) {
+    badge.classList.remove('done','ing','wait');
+    badge.classList.add(cls);
+    badge.textContent = status || '대기';
+  }
+}
+
+// ─── 데이터 파싱 & 대시보드 업데이트 ──────────────────────
+function updateDashboard(rows) {
+
+  // A열(단계) 매핑
+  const stageMap = {
+    '재무ERP':                        { key:'overall',  summary:null },
+    '1. 요구사항 분석':               { key:'stage-1',  summary:'summary-1' },
+    '2. 시스템 설계 및 개발환경 설정':{ key:'stage-2',  summary:'summary-2' },
+    '3. 상품설계':                    { key:'stage-3',  summary:'summary-3' },
+    '4. 개발':                        { key:'stage-4',  summary:'summary-4' },
+    '5. 배포 및 운영 테스트':         { key:'stage-5',  summary:'summary-5' },
+  };
+
+  // B열(서브단계) 매핑
+  const subMap = {
+    '1-1. 요건분석':            'sub-1-1',
+    '2-1. 시스템 설계':         'sub-2-1',
+    '2-2. 서버 설치/구성':      'sub-2-2',
+    '2-3. 프레임워크':          'sub-2-3',
+    '2-4. 개발환경 설정':       'sub-2-4',
+    '3-0. 플랫폼':              'sub-3-0',
+    '3-1. 기초공통':            'sub-3-1',
+    '3-2. 재무회계':            'sub-3-2',
+    '3-3. 예산관리':            'sub-3-3',
+    '3-4. 인사관리':            'sub-3-4',
+    '4-1. 플랫폼':              'sub-4-1',
+    '4-2. 기초공통':            'sub-4-2',
+    '4-3. 재무회계':            'sub-4-3',
+    '4-4. 예산관리':            'sub-4-4',
+    '4-5. 인사관리':            'sub-4-5',
+    '4-6 RERP 연동 API개발':    'sub-4-6',
+    '5-1. 운영서버 구축':       'sub-5-1',
+    '5-2. 개발계 테스트':       'sub-5-2',
+    '5-3. 운영 테스트':         'sub-5-3',
+    '5-4. 대고객오픈':          'sub-5-4',
+  };
+
+  // 섹션별 데이터 수집
+  const data = {};  // key -> {pct, status, items:[{pct,status}]}
+  let curKey = null;
+
+  for (const row of rows) {
+    const a      = (row[0] || '').trim();
+    const b      = (row[1] || '').trim();
+    const c      = (row[2] || '').trim();
+    const status = (row[6] || '').trim();
+    const pct    = parsePct(row[9]);
+
+    if (a) {
+      // A열: 단계 행
+      curKey = null;
+      const m = stageMap[a];
+      if (m && pct !== null) {
+        data[m.key] = { pct, status };
+        if (m.summary) data[m.summary] = { pct, status };
+      }
+
+    } else if (b) {
+      // B열: 서브단계 행
+      const key = subMap[b];
+      curKey = key || null;
+      if (!key) continue;
+
+      if (!data[key]) data[key] = { items: [] };
+
+      if (!c && pct !== null) {
+        // 독립적인 섹션 헤더 행 (C 비어있고 % 존재) → 직접 사용
+        data[key].pct    = pct;
+        data[key].status = status;
+      } else if (c && status) {
+        // 첫 번째 C-아이템이 B 행에 합쳐진 경우
+        data[key].items.push({ pct: pct !== null ? pct : 0, status });
+      }
+
+    } else if (c && curKey) {
+      // C열: 현재 섹션의 하위 항목
+      if (data[curKey] && status) {
+        data[curKey].items.push({ pct: pct !== null ? pct : 0, status });
+      }
+    }
+  }
+
+  // DOM 반영
+  for (const [key, d] of Object.entries(data)) {
+    let finalPct, finalStatus;
+
+    if (d.pct !== undefined) {
+      finalPct    = d.pct;
+      finalStatus = d.status || '대기';
+    } else if (d.items && d.items.length > 0) {
+      const items = d.items.filter(i => i.status);
+      if (items.length > 0) {
+        finalPct = Math.round(items.reduce((s, i) => s + i.pct, 0) / items.length);
+        finalStatus =
+          items.every(i => i.status === '완료') ? '완료' :
+          items.some(i => i.status === '진행' || i.status === '완료') ? '진행' : '대기';
+      }
+    }
+
+    if (finalPct !== undefined) applyUpdate(key, finalPct, finalStatus);
+  }
+}
+
+// ─── 조회 버튼 실행 ──────────────────────────────────────
+async function fetchAndUpdate() {
+  const btn = document.getElementById('refresh-btn');
+  const timeEl = document.getElementById('refresh-time');
+  btn.disabled = true;
+  btn.textContent = '조회중...';
+
+  try {
+    const url = 'https://docs.google.com/spreadsheets/d/1bpkbFFPx-KjACwqedcfgcAdedd7YNofW4b_WwegqYxY/export?format=csv&gid=1865718465';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
+    updateDashboard(parseCSV(text));
+
+    const now = new Date();
+    const p = n => String(n).padStart(2, '0');
+    timeEl.textContent =
+      `${now.getFullYear()}-${p(now.getMonth()+1)}-${p(now.getDate())} ` +
+      `${p(now.getHours())}:${p(now.getMinutes())}:${p(now.getSeconds())}`;
+  } catch (e) {
+    timeEl.textContent = '조회 실패 (' + e.message + ')';
+    timeEl.style.color = '#f87171';
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '&#8635; 최신내역 가져오기';
+  }
+}
+</script>
+
+</body>
+</html>

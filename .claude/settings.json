@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:doc-10-1k-sheets.googleusercontent.com)",
+      "Bash(curl -L \"https://docs.google.com/spreadsheets/d/1bpkbFFPx-KjACwqedcfgcAdedd7YNofW4b_WwegqYxY/export?format=csv&gid=1865718465\" -o /tmp/erp_sheet.csv)",
+      "Read(//tmp/**)",
+      "Bash(curl -L \"https://docs.google.com/spreadsheets/d/1bpkbFFPx-KjACwqedcfgcAdedd7YNofW4b_WwegqYxY/export?format=csv&gid=1865718465\" -o \"C:/erp_sheet.csv\")",
+      "Read(//c//**)"
+    ]
+  }
+}

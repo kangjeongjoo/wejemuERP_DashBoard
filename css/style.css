@@ -30,20 +30,36 @@ body {
   line-height: 1.5;
 }
 
+/* ===== 고정 상단 래퍼 ===== */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  background: var(--header-bg);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.sticky-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== 상세 컨테이너 ===== */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px 48px;
+  padding: 24px 24px 48px;
 }
 
 /* ===== 히어로 헤더 ===== */
 .hero {
-  background: var(--header-bg);
+  background: transparent;
   color: #fff;
-  border-radius: 0 0 var(--radius) var(--radius);
-  padding: 32px 32px 28px;
-  margin-bottom: 28px;
-  box-shadow: var(--shadow-lg);
+  border-radius: 0;
+  padding: 24px 0 16px;
+  margin-bottom: 0;
 }
 
 .hero-top {
@@ -122,7 +138,8 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 12px;
-  margin-bottom: 28px;
+  padding: 12px 0 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .summary-card {
@@ -135,7 +152,9 @@ body {
   transition: transform 0.2s;
 }
 
-.summary-card:hover { transform: translateY(-2px); }
+.summary-card { cursor: pointer; }
+.summary-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.13); }
+.summary-card:hover .summary-arrow { opacity: 1; }
 
 .summary-card.done { border-top-color: var(--done); }
 .summary-card.ing  { border-top-color: var(--ing); }
@@ -180,6 +199,22 @@ body {
 .summary-card.done .summary-bar div { background: var(--done); }
 .summary-card.ing  .summary-bar div { background: var(--ing); }
 .summary-card.wait .summary-bar div { background: var(--wait); }
+
+.summary-arrow {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: var(--text-sub);
+}
+
+/* 클릭 시 하이라이트 */
+.stage-card.highlight {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+  transition: outline 0.1s;
+}
 
 /* ===== 단계 상세 카드 ===== */
 .stages {

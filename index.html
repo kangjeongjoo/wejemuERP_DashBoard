@@ -8,77 +8,89 @@
 </head>
 <body>
 
+<!-- ===== 고정 상단 영역 ===== -->
+<div class="sticky-top">
+  <div class="sticky-inner">
+
+    <!-- 히어로 헤더 -->
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <h1>웹케시㈜ 재무ERP</h1>
+          <div class="hero-sub">프로젝트 진행현황 대시보드</div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-period">전체 기간 &nbsp;2025-11-01 ~ 2026-06-30</div>
+          <span class="badge ing" data-badge="overall">진행중</span>
+        </div>
+      </div>
+      <div class="hero-overall">
+        <div class="overall-row">
+          <span class="overall-label">전체 진척율</span>
+          <span class="overall-pct" data-pct="overall">66%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" data-bar="overall" style="width:66%"></div>
+        </div>
+      </div>
+      <!-- 조회 버튼 -->
+      <div class="refresh-bar">
+        <button id="refresh-btn" onclick="fetchAndUpdate()">&#8635; 최신내역 가져오기</button>
+        <span class="refresh-sep">|</span>
+        <span class="refresh-label">최신내역 조회:</span>
+        <span id="refresh-time">-</span>
+      </div>
+    </header>
+
+    <!-- 단계 요약 -->
+    <div class="summary-row">
+      <div class="summary-card done" data-key="summary-1" onclick="scrollToStage('stage-1')">
+        <div class="summary-step">1단계</div>
+        <div class="summary-name">요구사항 분석</div>
+        <div class="summary-pct-text" data-pct="summary-1">100%</div>
+        <div class="summary-bar"><div data-bar="summary-1" style="width:100%"></div></div>
+        <div class="summary-arrow">&#8595; 상세보기</div>
+      </div>
+      <div class="summary-card done" data-key="summary-2" onclick="scrollToStage('stage-2')">
+        <div class="summary-step">2단계</div>
+        <div class="summary-name">시스템 설계</div>
+        <div class="summary-pct-text" data-pct="summary-2">100%</div>
+        <div class="summary-bar"><div data-bar="summary-2" style="width:100%"></div></div>
+        <div class="summary-arrow">&#8595; 상세보기</div>
+      </div>
+      <div class="summary-card ing" data-key="summary-3" onclick="scrollToStage('stage-3')">
+        <div class="summary-step">3단계</div>
+        <div class="summary-name">상품설계</div>
+        <div class="summary-pct-text" data-pct="summary-3">96%</div>
+        <div class="summary-bar"><div data-bar="summary-3" style="width:96%"></div></div>
+        <div class="summary-arrow">&#8595; 상세보기</div>
+      </div>
+      <div class="summary-card ing" data-key="summary-4" onclick="scrollToStage('stage-4')">
+        <div class="summary-step">4단계</div>
+        <div class="summary-name">개발</div>
+        <div class="summary-pct-text" data-pct="summary-4">36%</div>
+        <div class="summary-bar"><div data-bar="summary-4" style="width:36%"></div></div>
+        <div class="summary-arrow">&#8595; 상세보기</div>
+      </div>
+      <div class="summary-card wait" data-key="summary-5" onclick="scrollToStage('stage-5')">
+        <div class="summary-step">5단계</div>
+        <div class="summary-name">배포/운영테스트</div>
+        <div class="summary-pct-text" data-pct="summary-5">0%</div>
+        <div class="summary-bar"><div data-bar="summary-5" style="width:0%"></div></div>
+        <div class="summary-arrow">&#8595; 상세보기</div>
+      </div>
+    </div>
+
+  </div><!-- /sticky-inner -->
+</div><!-- /sticky-top -->
+
 <div class="container">
-
-  <!-- ===== 히어로 헤더 ===== -->
-  <header class="hero">
-    <div class="hero-top">
-      <div>
-        <h1>웹케시㈜ 재무ERP</h1>
-        <div class="hero-sub">프로젝트 진행현황 대시보드</div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-period">전체 기간 &nbsp;2025-11-01 ~ 2026-06-30</div>
-        <span class="badge ing" data-badge="overall">진행중</span>
-      </div>
-    </div>
-    <div class="hero-overall">
-      <div class="overall-row">
-        <span class="overall-label">전체 진척율</span>
-        <span class="overall-pct" data-pct="overall">66%</span>
-      </div>
-      <div class="progress-track">
-        <div class="progress-fill" data-bar="overall" style="width:66%"></div>
-      </div>
-    </div>
-    <!-- 조회 버튼 -->
-    <div class="refresh-bar">
-      <button id="refresh-btn" onclick="fetchAndUpdate()">&#8635; 최신내역 가져오기</button>
-      <span class="refresh-sep">|</span>
-      <span class="refresh-label">최신내역 조회:</span>
-      <span id="refresh-time">-</span>
-    </div>
-  </header>
-
-  <!-- ===== 단계 요약 ===== -->
-  <div class="summary-row">
-    <div class="summary-card done" data-key="summary-1">
-      <div class="summary-step">1단계</div>
-      <div class="summary-name">요구사항 분석</div>
-      <div class="summary-pct-text" data-pct="summary-1">100%</div>
-      <div class="summary-bar"><div data-bar="summary-1" style="width:100%"></div></div>
-    </div>
-    <div class="summary-card done" data-key="summary-2">
-      <div class="summary-step">2단계</div>
-      <div class="summary-name">시스템 설계</div>
-      <div class="summary-pct-text" data-pct="summary-2">100%</div>
-      <div class="summary-bar"><div data-bar="summary-2" style="width:100%"></div></div>
-    </div>
-    <div class="summary-card ing" data-key="summary-3">
-      <div class="summary-step">3단계</div>
-      <div class="summary-name">상품설계</div>
-      <div class="summary-pct-text" data-pct="summary-3">96%</div>
-      <div class="summary-bar"><div data-bar="summary-3" style="width:96%"></div></div>
-    </div>
-    <div class="summary-card ing" data-key="summary-4">
-      <div class="summary-step">4단계</div>
-      <div class="summary-name">개발</div>
-      <div class="summary-pct-text" data-pct="summary-4">36%</div>
-      <div class="summary-bar"><div data-bar="summary-4" style="width:36%"></div></div>
-    </div>
-    <div class="summary-card wait" data-key="summary-5">
-      <div class="summary-step">5단계</div>
-      <div class="summary-name">배포/운영테스트</div>
-      <div class="summary-pct-text" data-pct="summary-5">0%</div>
-      <div class="summary-bar"><div data-bar="summary-5" style="width:0%"></div></div>
-    </div>
-  </div>
 
   <!-- ===== 단계 상세 ===== -->
   <div class="stages">
 
     <!-- 1단계 -->
-    <div class="stage-card done" data-key="stage-1">
+    <div class="stage-card done" data-key="stage-1" id="stage-1">
       <div class="stage-header">
         <div class="stage-header-left">
           <div class="stage-num">1</div>
@@ -114,7 +126,7 @@
     </div>
 
     <!-- 2단계 -->
-    <div class="stage-card done" data-key="stage-2">
+    <div class="stage-card done" data-key="stage-2" id="stage-2">
       <div class="stage-header">
         <div class="stage-header-left">
           <div class="stage-num">2</div>
@@ -197,7 +209,7 @@
     </div>
 
     <!-- 3단계 -->
-    <div class="stage-card ing" data-key="stage-3">
+    <div class="stage-card ing" data-key="stage-3" id="stage-3">
       <div class="stage-header">
         <div class="stage-header-left">
           <div class="stage-num">3</div>
@@ -295,7 +307,7 @@
     </div>
 
     <!-- 4단계 -->
-    <div class="stage-card ing" data-key="stage-4">
+    <div class="stage-card ing" data-key="stage-4" id="stage-4">
       <div class="stage-header">
         <div class="stage-header-left">
           <div class="stage-num">4</div>
@@ -408,7 +420,7 @@
     </div>
 
     <!-- 5단계 -->
-    <div class="stage-card wait" data-key="stage-5">
+    <div class="stage-card wait" data-key="stage-5" id="stage-5">
       <div class="stage-header">
         <div class="stage-header-left">
           <div class="stage-num">5</div>
@@ -494,6 +506,20 @@
 </div><!-- /container -->
 
 <script>
+// ─── 단계 카드로 스크롤 ──────────────────────────────────
+function scrollToStage(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  // 하이라이트 효과
+  el.classList.add('highlight');
+  setTimeout(() => el.classList.remove('highlight'), 1500);
+  // 고정 상단 전체 높이 + 여유 간격만큼 보정
+  const stickyTop = document.querySelector('.sticky-top');
+  const offset = stickyTop ? stickyTop.offsetHeight + 16 : 20;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
 // ─── CSV 파싱 ───────────────────────────────────────────
 function parseCSV(text) {
   const rows = [];

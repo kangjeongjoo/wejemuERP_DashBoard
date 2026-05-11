@@ -579,6 +579,30 @@ function applyUpdate(key, pct, status) {
   }
 }
 
+// ─── 날짜 갱신 유틸 ───────────────────────────────────────
+function updateStagePeriod(key, start, end) {
+  if (!start || !end) return;
+  if (key === 'overall') {
+    const el = document.querySelector('.hero-period');
+    if (el) el.innerHTML = '전체 기간 &nbsp;' + start + ' ~ ' + end;
+    return;
+  }
+  const stageEl = document.querySelector(`[data-key="${key}"] .stage-period`);
+  if (stageEl) stageEl.textContent = start + ' ~ ' + end;
+}
+
+function updateSubPeriod(key, start, end) {
+  if (!start || !end) return;
+  const item = document.querySelector(`[data-key="${key}"]`);
+  if (!item) return;
+  const meta = item.querySelector('.sub-meta');
+  if (!meta) return;
+  const html = meta.innerHTML;
+  // 날짜 ~ 날짜 부분을 정규식으로 치환 (담당자 부분 보존)
+  const newHtml = html.replace(/^\s*\d{4}-\d{2}-\d{2}\s*~\s*\d{4}-\d{2}-\d{2}/, start + ' ~ ' + end);
+  meta.innerHTML = newHtml;
+}
+
 // ─── 데이터 파싱 & 대시보드 업데이트 ──────────────────────
 function updateDashboard(rows) {
 
@@ -625,6 +649,8 @@ function updateDashboard(rows) {
     const b      = (row[1] || '').trim();
     const c      = (row[2] || '').trim();
     const status = (row[6] || '').trim();
+    const start  = (row[7] || '').trim();
+    const end    = (row[8] || '').trim();
     const pct    = parsePct(row[9]);
 
     if (a) {
@@ -635,6 +661,8 @@ function updateDashboard(rows) {
         data[m.key] = { pct, status };
         if (m.summary) data[m.summary] = { pct, status };
       }
+      // 단계 기간 갱신
+      if (m) updateStagePeriod(m.key, start, end);
 
     } else if (b) {
       // B열: 서브단계 행
@@ -652,6 +680,8 @@ function updateDashboard(rows) {
         // 첫 번째 C-아이템이 B 행에 합쳐진 경우
         data[key].items.push({ pct: pct !== null ? pct : 0, status });
       }
+      // 서브단계 기간 갱신
+      updateSubPeriod(key, start, end);
 
     } else if (c && curKey) {
       // C열: 현재 섹션의 하위 항목
@@ -690,7 +720,8 @@ async function fetchAndUpdate() {
   btn.textContent = '조회중...';
 
   try {
-    const url = 'https://docs.google.com/spreadsheets/d/1bpkbFFPx-KjACwqedcfgcAdedd7YNofW4b_WwegqYxY/export?format=csv&gid=1865718465';
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/1bpkbFFPx-KjACwqedcfgcAdedd7YNofW4b_WwegqYxY/export?format=csv&gid=1865718465';
+    const url = 'https://corsproxy.io/?' + encodeURIComponent(sheetUrl);
     const res = await fetch(url);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const text = await res.text();

@@ -720,9 +720,9 @@ async function fetchAndUpdate() {
   btn.textContent = '조회중...';
 
   try {
-    const sheetUrl = 'https://docs.google.com/spreadsheets/d/1bpkbFFPx-KjACwqedcfgcAdedd7YNofW4b_WwegqYxY/export?format=csv&gid=1865718465';
-    const url = 'https://corsproxy.io/?' + encodeURIComponent(sheetUrl);
-    const res = await fetch(url);
+    // GViz API는 CORS 허용 (export?format=csv는 CORS 차단됨)
+    const url = 'https://docs.google.com/spreadsheets/d/1bpkbFFPx-KjACwqedcfgcAdedd7YNofW4b_WwegqYxY/gviz/tq?tqx=out:csv&gid=1865718465';
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const text = await res.text();
     updateDashboard(parseCSV(text));
